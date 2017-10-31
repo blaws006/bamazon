@@ -42,7 +42,7 @@ function bamazonOrder() {
         switch(choice.order){
             case "Towels":
             case "Horizon Zero Dawn":
-            case "Moana Dol":
+            case "Moana Doll":
             case "NBA 2K18":
             case "4eva is a Mighty Long Time":
             case "Shampoo":
@@ -59,7 +59,6 @@ function bamazonOrder() {
     });
 
 };
-
 function howMany() {
     console.log("You bought " + orderList[0]);
 }
