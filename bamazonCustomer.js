@@ -3,6 +3,7 @@ var inquirer = require("inquirer");
 var mysql = require("mysql");
 
 //Global Variables/////////////////////////////////////////////////////////
+var orderList = [];
 //Connecting to the SQL database
 var connection = mysql.createConnection({
     host: "localhost",
@@ -36,7 +37,29 @@ function bamazonOrder() {
         type: "list",
         name: "order",
         message: "What would you like to buy today?",
-        choices: ["1", "2", "3", "4", "5", "6", "7", "8", "9", "10"]
+        choices: ["Towels", "Horizon Zero Dawn", "Moana Doll",  "NBA 2K18", "4eva is a Mighty Long Time", "Shampoo", "Lego Set", "Beach House 3", "Destiny 2", "2008"]
+    }).then(function(choice){
+        switch(choice.order){
+            case "Towels":
+            case "Horizon Zero Dawn":
+            case "Moana Dol":
+            case "NBA 2K18":
+            case "4eva is a Mighty Long Time":
+            case "Shampoo":
+            case "Lego Set":
+            case "Beach House 3":
+            case "Destiny 2":
+            case "2008":
+            orderList.push(choice.order);
+            howMany();
+            break;
+            default: 
+            console.log("Order number not recognized")
+        };        
     });
 
 };
+
+function howMany() {
+    console.log("You bought " + orderList[0]);
+}
