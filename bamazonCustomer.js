@@ -66,18 +66,18 @@ function howMany() {
         name: "quantity",
         message: "How many would you like to order?"
     }).then(function (quant) {
-        connection.query("SELECT * FROM products WHERE product_name = ?", [orderList[0]], function (err, res) {//Rejects the transaction if quanity ordered is greater than quantity in stock
+        connection.query("SELECT * FROM products WHERE product_name = ?", [orderList[0]], function (err, res) { //Rejects the transaction if quanity ordered is greater than quantity in stock/////////////////////////////////////////////////////////
             if (res[0].stock_quantity < quant.quantity) {
                 console.log("Insufficent amount!")
                 connection.end();
-            } else {//Logs the transaction and updates the db if acceptable
+            } else { //Logs the transaction and updates the db if acceptable/////////////////////////////////////////////////////////
                 console.log("Transaction successful!")
                var newQuant = res[0].stock_quantity -= quant.quantity;
                var price = res[0].price *= quant.quantity;
                console.log(newQuant)
                 var query = connection.query("UPDATE products SET stock_quantity = ? WHERE item_id = ?", [newQuant, res[0].item_id], function (err, res) {
                     if (err) throw err;
-                    //Gives costomer the cost of their order
+                    //Gives costomer the cost of their order/////////////////////////////////////////////////////////
                     console.log("Your total cost is $" + price);
                     connection.end();
                 });
