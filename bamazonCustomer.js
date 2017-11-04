@@ -51,7 +51,7 @@ function bamazonOrder() {
             case "Destiny 2":
             case "2008":
                 orderList.push(choice.order);
-                howMany();
+                 howMany();
                 break;
             default:
                 console.log("Order number not recognized")
