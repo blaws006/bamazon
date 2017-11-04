@@ -62,6 +62,8 @@ function lowInventory() {
         for (var i = 0; i < res.length; i++) {
             if (res[i].stock_quantity <= 5) {
                 console.log(res[i]);
+            } else {
+                console.log("Stock is good. Nothing to see here, Mr. Manager.")
             }
 
         }
